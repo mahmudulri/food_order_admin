@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fl_chart/fl_chart.dart';
 
 class DashBoard extends StatelessWidget {
   const DashBoard({super.key});
@@ -93,6 +94,11 @@ class DashBoard extends StatelessWidget {
                             ),
                           ),
                         ),
+                      ),
+                    ),
+                    Container(
+                      child: PieChart(
+                        PieChartData(),
                       ),
                     ),
                     Spacer(),
