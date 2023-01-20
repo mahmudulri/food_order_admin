@@ -40,6 +40,36 @@
   <script src="flutter.js" defer></script>
 </head>
 <body>
+  
+   <script>
+
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "firebase/app";
+  import { getAnalytics } from "firebase/analytics";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+  
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDz0A3DQ5DAy23IzqDvYqoa_iIZiB_qObM",
+    authDomain: "hasan-vai-application.firebaseapp.com",
+    databaseURL: "https://hasan-vai-application.firebaseio.com",
+    projectId: "hasan-vai-application",
+    storageBucket: "hasan-vai-application.appspot.com",
+    messagingSenderId: "821514093968",
+    appId: "1:821514093968:web:09816c2ba4dab030459f15",
+    measurementId: "G-11RE9DLL54"
+  };
+  
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+
+
+
+
   <script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 class DashBoard extends StatelessWidget {
-  const DashBoard({super.key});
+  DashBoard({super.key});
+
+  final ref = FirebaseDatabase.instance.ref("Requests");
 
   @override
   Widget build(BuildContext context) {
@@ -96,11 +99,11 @@ class DashBoard extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
-                      child: PieChart(
-                        PieChartData(),
-                      ),
-                    ),
+                    // Container(
+                    //   child: PieChart(
+                    //     PieChartData(),
+                    //   ),
+                    // ),
                     Spacer(),
                     Container(
                       height: 50,
@@ -139,9 +142,23 @@ class DashBoard extends StatelessWidget {
             ),
           ),
           Expanded(
-            flex: 4,
+            flex: 5,
             child: Column(
               children: [
+                Text(
+                  "Aftab Enterprise",
+                  style: TextStyle(
+                    fontSize: 28,
+                    color: Colors.black,
+                  ),
+                ),
+                Text(
+                  "Dhanmondi 2, Block-B, Road-04, Dhaka 01701987948",
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.black,
+                  ),
+                ),
                 Expanded(
                   flex: 1,
                   child: Container(

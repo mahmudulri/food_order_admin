@@ -1,27 +1,31 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:food_order_admin/dashboard.dart';
+import 'package:food_order_admin/draft.dart';
 import 'package:food_order_admin/homepage.dart';
+import 'package:food_order_admin/widget/foods.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(
     options: FirebaseOptions(
-      apiKey: "AIzaSyBQHwwIAAXwr2JfteU1SI4cD_7MTj_LkCY",
-      appId: "1:612466554316:web:eefe84f43c0faf6dc85969",
-      messagingSenderId: "612466554316",
-      projectId: "mynotebook-c350d",
+      apiKey: "AIzaSyDz0A3DQ5DAy23IzqDvYqoa_iIZiB_qObM",
+      appId: "1:821514093968:web:09816c2ba4dab030459f15",
+      authDomain: "hasan-vai-application.firebaseapp.com",
+      databaseURL: "https://hasan-vai-application.firebaseio.com",
+      messagingSenderId: "821514093968",
+      projectId: "hasan-vai-application",
     ),
   );
   // if (Firebase.apps.isEmpty) {
   //   await Firebase.initializeApp(
-  //     name: "hasannotebook",
+  //     // name: "hasannotebook",
   //     options: FirebaseOptions(
-  //       apiKey: "AIzaSyBQHwwIAAXwr2JfteU1SI4cD_7MTj_LkCY",
-  //       appId: "1:612466554316:web:eefe84f43c0faf6dc85969",
-  //       messagingSenderId: "612466554316",
-  //       projectId: "mynotebook-c350d",
+  //       apiKey: "AIzaSyDz0A3DQ5DAy23IzqDvYqoa_iIZiB_qObM",
+  //       appId: "1:821514093968:web:09816c2ba4dab030459f15",
+  //       messagingSenderId: "821514093968",
+  //       projectId: "hasan-vai-application",
   //     ),
   //   );
   // }
@@ -41,6 +45,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: DashBoard());
+        home: DraftPage());
   }
 }
