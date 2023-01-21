@@ -2,6 +2,7 @@ import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:food_order_admin/detailspage.dart';
+import 'package:food_order_admin/nextpage.dart';
 
 class FoodsPage extends StatelessWidget {
   FoodsPage({super.key});
@@ -44,19 +45,20 @@ class FoodsPage extends StatelessWidget {
                             SizedBox(
                               height: 10,
                             ),
-                            Container(
-                              height: 200,
-                              width: 400,
-                              color: Colors.purple,
-                              child: ListView.builder(
-                                itemCount: foodslist[index]["foods"].length,
-                                itemBuilder: (context, foodindex) {
-                                  return Text(foodslist[index]["foods"]
-                                          [foodindex]["price"]
-                                      .toString());
+                            // newMethod(foodslist, index),
+                            ElevatedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Nextpage(
+                                        address: foodslist[index]["address"],
+                                        foods: newMethod(foodslist, index),
+                                      ),
+                                    ),
+                                  );
                                 },
-                              ),
-                            ),
+                                child: Text("Go Next Page"))
                           ],
                         );
                       },
@@ -66,6 +68,20 @@ class FoodsPage extends StatelessWidget {
               ],
             );
           }
+        },
+      ),
+    );
+  }
+
+  Container newMethod(List<dynamic> foodslist, int index) {
+    return Container(
+      height: 200,
+      width: 400,
+      color: Colors.purple,
+      child: ListView.builder(
+        itemCount: foodslist[index]["foods"].length,
+        itemBuilder: (context, foodindex) {
+          return Text(foodslist[index]["foods"][foodindex]["price"].toString());
         },
       ),
     );

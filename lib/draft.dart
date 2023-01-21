@@ -22,7 +22,7 @@ class DraftPage extends StatelessWidget {
         stream: ref.onValue,
         builder: (context, AsyncSnapshot<DatabaseEvent> snapshot) {
           if (!snapshot.hasData) {
-            return CircularProgressIndicator();
+            return Center(child: CircularProgressIndicator());
           } else {
             Map<dynamic, dynamic> map =
                 snapshot.data!.snapshot.value as dynamic;
@@ -116,11 +116,6 @@ class DraftPage extends StatelessWidget {
                               ),
                             ),
                           ),
-                          // Container(
-                          //   child: PieChart(
-                          //     PieChartData(),
-                          //   ),
-                          // ),
                           Spacer(),
                           Container(
                             height: 50,
@@ -174,7 +169,7 @@ class DraftPage extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        "Dhanmondi 2, Block-B, Road-04, Dhaka 01701987948",
+                        "Radhanagor Bazar, Sreepur , Magura - 01701987948",
                         style: TextStyle(
                           fontSize: 20,
                           color: Colors.black,
@@ -510,7 +505,17 @@ class DraftPage extends StatelessWidget {
                                                     MaterialPageRoute(
                                                       builder: (context) =>
                                                           Detailspage(
-                                                              foods: "hasnBD"),
+                                                        address: list[index]
+                                                            ["address"],
+                                                        myfoods: mynewMethod(
+                                                            list, index),
+                                                        orderBy: list[index]
+                                                            ["name"],
+                                                        orderdate: list[index]
+                                                            ["currentDate"],
+                                                        subtotal: list[index]
+                                                            ["total"],
+                                                      ),
                                                     ),
                                                   );
                                                 },
@@ -575,6 +580,77 @@ class DraftPage extends StatelessWidget {
               ],
             );
           }
+        },
+      ),
+    );
+  }
+
+  Container mynewMethod(List<dynamic> list, int index) {
+    return Container(
+      height: 300,
+      // width: 60,
+      // color: Colors.black38,
+      child: ListView.separated(
+        separatorBuilder: (context, index) {
+          return Divider(
+            thickness: 1,
+            color: Colors.black,
+          );
+        },
+        itemCount: list[index]["foods"].length,
+        itemBuilder: (context, foodindex) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Text(
+                    list[index]["foods"].length.toString(),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(list[index]["foods"][foodindex]["productName"]
+                          .toString()),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Text(
+                    list[index]["foods"][foodindex]["free"].toString(),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Text(
+                    list[index]["foods"][foodindex]["price"].toString(),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Row(
+                    children: [
+                      Text(
+                        list[index]["foods"][foodindex]["quantity"].toString(),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        list[index]["foods"][foodindex]["qntType"].toString(),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          );
         },
       ),
     );

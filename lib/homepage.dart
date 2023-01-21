@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:food_order_admin/dashboard.dart';
+import 'package:food_order_admin/draft.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -27,7 +28,7 @@ class _HomepageState extends State<Homepage> {
                 color: Colors.white24,
                 child: Center(
                   child: Text(
-                    "Aftab Enterprise",
+                    "Lihan Enterprise",
                     style: TextStyle(
                       fontSize: screenWidht * 0.040,
                     ),
@@ -86,7 +87,7 @@ class _HomepageState extends State<Homepage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (contex) => DashBoard()));
+                                builder: (contex) => DraftPage()));
                       },
                       child: Container(
                         decoration: BoxDecoration(
